@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Suryansh Kapoor — Field notes</title>
+<meta name="description" content="Field notes of Suryansh Kapoor, B.Tech CSE (AI) student from Himachal Pradesh: AI, Linux, networking, homelab.">
+<meta property="og:title" content="Suryansh Kapoor — Field notes"><meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;600&family=JetBrains+Mono:wght@500&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f0e9da;--ink:#16130f;--gr:#5d584c;--ln:rgba(22,19,15,.15);--ac:#d9381e;--card:#f8f3e6;color-scheme:light;
+--serif:"Instrument Serif",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;--hand:"Caveat","Bradley Hand",cursive;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#15120e;--ink:#efe8d9;--gr:#aaa493;--ln:rgba(239,232,217,.16);--ac:#ff6a4d;--card:#201c16;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#15120e;--ink:#efe8d9;--gr:#aaa493;--ln:rgba(239,232,217,.16);--ac:#ff6a4d;--card:#201c16;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);overflow-x:hidden;
+background-image:linear-gradient(var(--ln) 1px,transparent 1px);background-size:100% 34px}
+a{color:inherit}:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(18px,4vw,48px) 0 clamp(18px,7vw,90px)}
+.mono{font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gr)}
+.hand{font-family:var(--hand);font-weight:700;color:var(--ac);font-size:1.4rem;line-height:1.1}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;line-height:.92;letter-spacing:-.02em}
+h2{font-size:clamp(44px,8vw,100px);margin-bottom:.35em}h3{font-size:clamp(28px,3.6vw,42px)}
+.spiral{position:fixed;left:0;top:0;bottom:0;width:34px;z-index:30;background:radial-gradient(circle at 17px 14px,var(--paper) 0 6px,var(--gr) 6.5px 8px,transparent 8.5px) 0 0/34px 34px repeat-y,linear-gradient(90deg,rgba(0,0,0,.07),transparent)}
+@media(max-width:700px){.spiral{display:none}.wrap{padding-left:18px}}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--ink)}
+nav ul{display:flex;gap:clamp(12px,2.4vw,28px);list-style:none;margin:0;padding:11px 0;overflow-x:auto}
+nav a{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap}nav a:hover{color:var(--ac)}
+section{padding:clamp(70px,10vw,140px) 0;position:relative}
+.hero{padding-top:50px;min-height:88vh}
+.ring{position:absolute;right:6%;top:30px;width:150px;height:150px;border-radius:50%;border:7px solid rgba(120,70,30,.13);filter:blur(.6px);transform:rotate(20deg);pointer-events:none}
+h1{font-size:clamp(70px,18vw,250px);position:relative}h1 span{display:block}h1 .b{font-style:italic;margin-left:clamp(10px,12vw,200px)}
+.scr{position:absolute;left:0;bottom:-.02em;width:70%;height:.14em;overflow:visible}
+.scr path{stroke:var(--ac);stroke-width:6;fill:none;stroke-linecap:round;stroke-dasharray:900;stroke-dashoffset:900;animation:dr 1.6s .5s forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.tag{font:italic clamp(24px,3.4vw,42px)/1.15 var(--serif);max-width:19ch;margin:36px 0 0}
+.sticky{position:absolute;right:clamp(0px,5vw,70px);top:270px;width:210px;background:#f3d65b;color:#2a2410;padding:16px 16px 20px;transform:rotate(4deg);box-shadow:3px 6px 0 rgba(0,0,0,.15);font:700 22px/1.1 var(--hand)}
+.sticky s{text-decoration-color:#c0291a;text-decoration-thickness:2px;opacity:.75;font-weight:500}
+@media(max-width:900px){.sticky{position:relative;top:0;right:auto;margin:30px 0 0;transform:rotate(-2deg)}}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-block;padding:12px 20px;border:1.5px solid var(--ink);background:transparent;color:inherit;text-decoration:none;font:500 13px var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.btn.s{background:var(--ink);color:var(--paper)}.btn:hover{background:var(--ac);border-color:var(--ac);color:#fff;transform:translate(-3px,-3px);box-shadow:3px 3px 0 var(--ink)}
+.meta{display:flex;flex-wrap:wrap;gap:10px 30px;margin-top:26px}
+.hint{position:absolute;right:0;bottom:30px}
+.about{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(24px,6vw,80px)}@media(max-width:820px){.about{grid-template-columns:1fr}}
+.big{font:clamp(24px,2.8vw,34px)/1.25 var(--serif);margin:0 0 1em}
+mark{background:none;box-shadow:inset 0 -.45em 0 color-mix(in srgb,var(--ac) 30%,transparent);color:inherit}
+.board{position:relative;margin-top:36px}
+.card{background:var(--card);border:1.5px solid var(--ink);padding:0 20px 20px;box-shadow:5px 6px 0 var(--ln);margin-bottom:26px;position:relative}
+.card::before{content:"";position:absolute;left:50%;top:-12px;width:90px;height:24px;background:color-mix(in srgb,var(--ac) 35%,transparent);transform:translateX(-50%) rotate(-3deg)}
+.grip{padding:18px 0 10px;cursor:grab;touch-action:none}
+.board.abs .card{position:absolute;width:320px;height:350px;margin:0;overflow:auto}
+.card .back{display:none}.card.flip .front{display:none}.card.flip .back{display:block}
+.card p{margin:.5em 0;font-size:15px}.stk{font:12px/1.7 var(--mono)}
+.st{display:inline-block;border:1px solid var(--ac);color:var(--ac);padding:1px 8px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;transform:rotate(-2deg)}
+.card button{margin-top:8px;font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.06em;background:none;border:0;border-bottom:1.5px solid var(--ink);color:inherit;cursor:pointer;padding:0}
+.lab{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;align-items:center;margin-top:80px;border-top:1.5px solid var(--ink);padding-top:30px}@media(max-width:820px){.lab{grid-template-columns:1fr}}
+svg text{font:700 20px var(--hand);fill:var(--ink)}svg .l{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round}svg .a{stroke:var(--ac)}
+.toc{list-style:none;padding:0;margin:30px 0 0;max-width:760px}
+.toc li{display:flex;align-items:baseline;gap:10px;font:clamp(26px,4vw,46px)/1.25 var(--serif);cursor:default}
+.toc li::after{content:"";order:1;flex:1;border-bottom:2px dotted var(--gr);min-width:20px}.toc li span{order:2;font:500 13px var(--mono);color:var(--ac)}.toc li:hover{font-style:italic;color:var(--ac)}
+.tabs{display:flex;flex-wrap:wrap;gap:4px;margin-top:30px;border-bottom:1.5px solid var(--ink)}
+.tabs button{font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.06em;padding:10px 16px;background:transparent;color:inherit;border:1.5px solid var(--ink);border-bottom:0;cursor:pointer;border-radius:10px 10px 0 0;margin-bottom:-1.5px}
+.tabs button[aria-selected=true]{background:var(--ink);color:var(--paper)}
+.panel{padding:30px 0;font:clamp(26px,4vw,48px)/1.35 var(--serif)}.panel span{display:inline-block;margin:0 14px 6px 0;padding:0 .3em;border-bottom:2px solid var(--ac)}.panel span:nth-child(odd){transform:rotate(-1.2deg)}
+.stamps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-top:34px}
+.stamp{border:3px double var(--ac);color:var(--ac);padding:18px;transform:rotate(-2deg)}.stamp:nth-child(even){transform:rotate(1.5deg);border-color:var(--ink);color:var(--ink)}
+.stamp h3{font-size:30px}.stamp p{margin:8px 0 0;font-size:14px;color:var(--gr)}
+.stamp.big{grid-column:1/-1;text-align:center}.stamp.big h3{font-size:clamp(40px,8vw,96px)}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;margin-top:30px}
+.n{padding:20px;background:color-mix(in srgb,var(--ac) 9%,var(--card));border:1px dashed var(--gr);transform:rotate(-1.2deg)}.n:nth-child(even){transform:rotate(1.4deg)}.n p{margin:.4em 0 0;font-size:15px}
+#cat{cursor:pointer;background:none;border:0;padding:0}#cat svg{width:150px;height:auto}
+.post{display:grid;grid-template-columns:1.4fr 1fr;border:1.5px solid var(--ink);background:var(--card);padding:clamp(18px,3vw,36px);gap:30px;position:relative}@media(max-width:820px){.post{grid-template-columns:1fr}}
+.post h2{font-size:clamp(42px,7vw,88px)}.post em{color:var(--ac)}
+textarea{width:100%;min-height:120px;background:transparent;color:inherit;border:0;border-bottom:1.5px solid var(--ink);font:500 22px/34px var(--hand);resize:vertical;background-image:linear-gradient(var(--ln) 1px,transparent 1px);background-size:100% 34px}
+.pstamp{position:absolute;right:18px;top:18px;width:64px;height:78px;border:2px dashed var(--ac);display:grid;place-items:center;transform:rotate(5deg);font:700 18px var(--hand);color:var(--ac);text-align:center}
+.slash{position:fixed;inset:0;z-index:60;pointer-events:none;display:none}.slash.on{display:block}
+.slash line{stroke:var(--ac);stroke-width:5;stroke-linecap:round;stroke-dasharray:1600;stroke-dashoffset:1600;animation:dr .5s forwards}
+.slash line:nth-child(2){animation-delay:.12s}.slash line:nth-child(3){animation-delay:.24s}
+#trail{position:fixed;inset:0;pointer-events:none;z-index:40}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.scr path{stroke-dashoffset:0}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+footer{padding:30px 0}
+</style></head>
+<body>
+<div class="spiral" aria-hidden="true"></div><canvas id="trail" aria-hidden="true"></canvas>
+<svg class="slash" id="slash" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true"><line x1="40" y1="120" x2="960" y2="300"/><line x1="40" y1="300" x2="960" y2="480"/><line x1="40" y1="480" x2="960" y2="660"/></svg>
+<nav aria-label="Main"><div class="wrap"><ul><li><a href="#top">Cover</a></li><li><a href="#about">About</a></li><li><a href="#work">Desk</a></li><li><a href="#lab">Homelab</a></li><li><a href="#skills">Toolbox</a></li><li><a href="#cred">Stamps</a></li><li><a href="#corner">Margins</a></li><li><a href="#contact">Postcard</a></li></ul></div></nav>
+<main id="top">
+<header class="hero"><div class="wrap"><div class="ring" aria-hidden="true"></div>
+<p class="mono">Himachal Pradesh, India · best viewed with chai</p>
+<h1><span>Suryansh</span><span class="b">Kapoor<svg class="scr" viewBox="0 0 600 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 18C90 6 200 26 310 14S520 8 596 20"/></svg></span></h1>
+<p class="tag">CS student. Runs Arch, btw.</p>
+<div class="sticky" aria-label="Sticky note">things I am not:<br><s>a passionate developer crafting innovative solutions</s><br>things I am: mid-reinstall, again</div>
+<div class="meta"><span class="mono">CS student, AI-ish, makes stuff</span><span class="mono">● now: fixing what I broke last week</span><span class="st">B.Tech CSE (AI) ’23–’27</span></div>
+<div class="cta"><a class="btn s" href="#work">Open the desk ↓</a><a class="btn" href="https://github.com/suryakapoor124" target="_blank" rel="noopener">GitHub ↗</a><a class="btn" href="https://www.linkedin.com/in/suryansh-kapoor-710807257/" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+<p class="hand hint">psst: press Z, or click the cat ↓</p></div></header>
+
+<section id="about"><div class="wrap about"><div class="rv"><p class="mono">p.01 — about</p><h2>About, I guess.</h2><p class="hand">no, I don’t have a five-year plan →</p></div>
+<div class="rv"><p class="big">I study CS at Shoolini and <mark>reinstall Arch</mark> more often than is reasonable. Not a flex. I just keep breaking it.</p>
+<p>Below you’ll find: an app that came runner-up at a hackathon, a Linux setup with a vampire cat on it, a chat idea I haven’t finished, and a home server held together by old hardware and optimism. No metrics, no testimonials. Nobody has offered.</p>
+<p>Some of it is finished, some of it is a concept. I’ve labelled which is which so you don’t have to guess.</p></div></div></section>
+
+<section id="work"><div class="wrap"><p class="mono rv">p.02 — the desk</p><h2 class="rv">Things on my desk.</h2>
+<p class="rv" style="max-width:58ch;color:var(--gr)">Drag the cards around if you’re on a laptop. Flip them for notes. If it says concept, it’s a concept, I’m not going to pretend.</p>
+<div class="board" id="board">
+<article class="card" data-x="0" data-y="10" style="transform:rotate(-1.5deg)"><div class="grip"><span class="mono">hackathon · AI</span></div><div class="front"><h3>AI Therapist</h3><span class="st">★ 1st Runner-Up, Dept. Hackathon 2025</span><p>A private place for students to say how they actually feel.</p><p class="stk">Team CodeX: Prem Sharma, Jayanth Ravi, Shaurya Pathak, Suryansh Kapoor</p><button>turn over ↻</button></div><div class="back"><h3>Notes</h3><p>Made at the Yogananda School of AI, Computers &amp; Data Sciences at Shoolini. Four of us, one deadline. It’s a student project, not a therapist. Please see a real one.</p><button>turn back ↻</button></div></article>
+<article class="card" data-x="34" data-y="0" style="transform:rotate(1.2deg)"><div class="grip"><span class="mono">mobile · concept</span></div><div class="front"><h3>MagicWave</h3><span class="st">Concept</span><p>An app idea: about 50 frequencies, sorted into sleep, focus, relaxing and pain-management.</p><p class="stk">Mobile-first · Material Design 3-inspired · dark/light</p><button>turn over ↻</button></div><div class="back"><h3>Notes</h3><p>Mostly an interface experiment. It does not cure anything and I’m not claiming it does.</p><button>turn back ↻</button></div></article>
+<article class="card" data-x="68" data-y="30" style="transform:rotate(-.8deg)"><div class="grip"><span class="mono">real-time · social</span></div><div class="front"><h3>Konec / KonecC</h3><span class="st">Concept / experiment</span><p>Random chat with strangers, minus (hopefully) the usual chaos.</p><p class="stk">React · React Native · Flask · Firebase · WebRTC</p><button>turn over ↻</button></div><div class="back"><h3>Notes</h3><p>Two strangers, one WebRTC connection, a lot of ways for it to fail.</p><button>turn back ↻</button></div></article>
+<article class="card" data-x="4" data-y="410" style="transform:rotate(1deg)"><div class="grip"><span class="mono">linux · systems</span></div><div class="front"><h3>MeowOS</h3><span class="st">Personal experiment</span><p>Arch with i3 on X11, a vampire cat theme, a custom terminal, a boot screen and an unreasonable amount of ASCII art.</p><p class="stk">pacman + AUR · custom package commands</p><button>turn over ↻</button></div><div class="back"><h3>Notes</h3><p>Minimal on purpose. The cat was non-negotiable.</p><button>turn back ↻</button></div></article>
+<article class="card" data-x="36" data-y="400" style="transform:rotate(-1.2deg)"><div class="grip"><span class="mono">web · fitness</span></div><div class="front"><h3>SmartFit</h3><span class="st">Experimental prototype</span><p>A fitness assistant in Flask. “Experimental” is the polite word.</p><p class="stk">Python · Flask · HTML · CSS</p><button>turn over ↻</button></div><div class="back"><h3>Notes</h3><p>More repo details on GitHub.</p><a href="https://github.com/suryakapoor124" target="_blank" rel="noopener">GitHub ↗</a><br><button>turn back ↻</button></div></article>
+<article class="card" data-x="68" data-y="420" style="transform:rotate(1.5deg)"><div class="grip"><span class="mono">web · community</span></div><div class="front"><h3>Clubs Website</h3><span class="st">Web project</span><p>A website for the university clubs. HTML, CSS, JS, nothing else.</p><p class="stk">HTML · CSS · JavaScript</p><button>turn over ↻</button></div><div class="back"><h3>Notes</h3><p>No framework, no regrets.</p><a href="https://github.com/suryakapoor124" target="_blank" rel="noopener">Repos on GitHub ↗</a><br><button>turn back ↻</button></div></article>
+</div>
+<div class="lab rv" id="lab"><div><p class="mono">ongoing · homelab</p><h2 style="font-size:clamp(40px,6vw,76px)">The always-unfinished server.</h2><p>Old hardware, Arch, SSH, a few databases and APIs, some Docker, and more networking than I planned for. It’s never finished, which is sort of the point.</p></div>
+<svg viewBox="0 0 520 300" role="img" aria-label="Sketch: old hardware running Arch connected through a router to hosted services and the internet"><defs><filter id="rough"><feTurbulence baseFrequency=".04" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="4"/></filter></defs>
+<g filter="url(#rough)"><rect class="l" x="20" y="90" width="150" height="110"/><rect class="l" x="205" y="120" width="100" height="50"/><path class="l a" d="M170 145H205M305 145H350"/><rect class="l" x="350" y="30" width="150" height="50"/><rect class="l" x="350" y="110" width="150" height="50"/><rect class="l" x="350" y="190" width="150" height="50"/><path class="l a" d="M335 145L350 55M335 145L350 135M335 145L350 215"/></g>
+<text x="40" y="140">old laptop</text><text x="40" y="168">(Arch, SSH)</text><text x="228" y="150">router</text><text x="368" y="62">web host</text><text x="368" y="142">db + APIs</text><text x="368" y="222">docker</text><text x="30" y="260" style="fill:var(--ac)">next: break it again</text></svg></div>
+</div></section>
+
+<section id="skills"><div class="wrap"><p class="mono rv">p.03 — chapters &amp; toolbox</p><h2 class="rv">Contents.</h2>
+<ul class="toc rv"><li>Artificial Intelligence<span>p.01</span></li><li>Software Engineering<span>p.02</span></li><li>Linux &amp; Open Source<span>p.03</span></li><li>Backend Systems<span>p.04</span></li><li>Networking<span>p.05</span></li><li>Self-hosting<span>p.06</span></li><li>Creative Development<span>p.07</span></li></ul>
+<p class="hand">self-hosting is where all of these end up fighting each other.</p>
+<h2 style="margin-top:80px" class="rv">Toolbox.</h2><p style="color:var(--gr)">Some of these I’ve used a lot, some once. No percentage bars, they’d be made up.</p>
+<div class="tabs" role="tablist" id="tabs"></div><div class="panel" id="panel" role="tabpanel" aria-live="polite"></div></div></section>
+
+<section id="cred"><div class="wrap"><p class="mono rv">p.04 — stamps</p><h2 class="rv">On the record.</h2>
+<div class="stamps">
+<div class="stamp big rv"><p class="mono" style="color:inherit">2025 · Yogananda School of AI, Computers &amp; Data Sciences</p><h3>1st Runner-Up</h3><p>Departmental Hackathon 2025 · Project AI Therapist · Team CodeX</p></div>
+<div class="stamp rv"><p class="mono" style="color:inherit">April 2026</p><h3>IBM Deep Learning with PyTorch, Keras &amp; TensorFlow</h3><p>Professional Certificate</p></div>
+<div class="stamp rv"><p class="mono" style="color:inherit">April 2026 · Packt</p><h3>Intro to NLP &amp; Syntactic Processing</h3><p>Certificate</p></div>
+<div class="stamp rv"><p class="mono" style="color:inherit">2025</p><h3>L’Oréal Sustainability Challenge</h3><p>Online Aptitude Assessment, participation certificate</p></div></div></div></section>
+
+<section id="corner"><div class="wrap"><p class="mono rv">p.05 — margins</p><h2 class="rv">Not code.</h2>
+<div class="notes"><div class="n rv"><p class="hand">anime &amp; manga</p><p>One Piece, Bleach, Death Note, JoJo. Favourite character is Zoro, and no, not for the sense of direction.</p></div><div class="n rv"><p class="hand">sketching</p><p>Anime characters, pencil, paper. No undo.</p></div><div class="n rv"><p class="hand">gaming</p><p>Unwinding. Mostly.</p></div><div class="n rv"><p class="hand">tinkering</p><p>Open source, old hardware, side projects nobody asked for.</p></div></div>
+<button id="cat" aria-label="Doodle of a vampire cat. Toggle dark theme." style="margin-top:30px"><svg viewBox="0 0 150 130"><g filter="url(#rough)"><path class="l" d="M25 55L25 15L55 35Q75 28 95 35L125 15L125 55Q135 85 110 105Q75 125 40 105Q15 85 25 55Z"/><path class="l a" d="M58 88L62 102L68 88M82 88L88 102L92 88"/><path class="l" d="M55 62h6M89 62h6M70 76l5 4l5-4"/></g></svg><span class="hand" style="display:block">meowOS mascot: poke me</span></button></div></section>
+
+<section id="contact"><div class="wrap"><p class="mono rv">p.06 — postcard</p>
+<div class="post rv"><div class="pstamp" aria-hidden="true">HP<br>IN</div><div><h2>Have an interesting idea? <em>Let’s build something.</em></h2></div>
+<div><label for="m" class="mono">Type a note. It copies, then LinkedIn opens and you paste. Roundabout, I know.</label><textarea id="m" placeholder="Hi Suryansh, I have an idea…"></textarea>
+<div class="cta"><button class="btn s" id="go">Copy &amp; open LinkedIn →</button><a class="btn" href="https://github.com/suryakapoor124" target="_blank" rel="noopener">GitHub ↗</a></div><p class="hand" id="s" role="status"></p></div></div></div></section>
+</main>
+<footer><div class="wrap mono">© 2026 Suryansh Kapoor · Hand-built, no template.</div></footer>
+<script>
+(function(){
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+var B=document.getElementById('board'),cs=[].slice.call(B.querySelectorAll('.card')),z=5;
+function lay(){var a=innerWidth>=900;B.classList.toggle('abs',a);B.style.height=a?'800px':'';cs.forEach(function(c){c.style.left=a?c.dataset.x*B.clientWidth/100+'px':'';c.style.top=a?c.dataset.y+'px':''})}
+lay();addEventListener('resize',lay);
+cs.forEach(function(c){c.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){c.classList.toggle('flip')})});
+var g=c.querySelector('.grip');g.addEventListener('pointerdown',function(e){if(!B.classList.contains('abs'))return;var sx=e.clientX-c.offsetLeft,sy=e.clientY-c.offsetTop;c.style.zIndex=++z;g.setPointerCapture(e.pointerId);
+function mv(v){c.style.left=Math.max(0,Math.min(B.clientWidth-c.offsetWidth,v.clientX-sx))+'px';c.style.top=Math.max(0,Math.min(B.clientHeight-c.offsetHeight,v.clientY-sy))+'px'}
+function up(){g.removeEventListener('pointermove',mv);g.removeEventListener('pointerup',up)}g.addEventListener('pointermove',mv);g.addEventListener('pointerup',up)})});
+var T={Languages:'C++ · Python · Java · JavaScript · HTML · CSS',Frontend:'React · Angular · React Native · Tailwind CSS',Backend:'Node.js · Express.js · Flask · FastAPI',Databases:'MySQL · PostgreSQL · SQLite · MongoDB · Firebase Firestore · Cassandra',AI:'Machine Learning · Deep Learning · NLP · Generative AI · Transformers · RAG · Embeddings · TensorFlow · PyTorch · OpenCV',Infra:'Linux · Arch Linux · Docker · Git · GitHub · Nginx · SSH · Hadoop · HDFS · WebRTC'};
+var tb=document.getElementById('tabs'),pn=document.getElementById('panel');
+function sel(k){[].forEach.call(tb.children,function(b){b.setAttribute('aria-selected',b.textContent==k)});pn.innerHTML=T[k].split(' · ').map(function(s){return'<span>'+s+'</span>'}).join(' ')}
+Object.keys(T).forEach(function(k){var b=document.createElement('button');b.setAttribute('role','tab');b.textContent=k;b.onclick=function(){sel(k)};tb.appendChild(b)});sel('Languages');
+function th(){var r=document.documentElement,d=r.dataset.theme?r.dataset.theme=='dark':matchMedia('(prefers-color-scheme:dark)').matches;r.dataset.theme=d?'light':'dark'}
+document.getElementById('cat').onclick=th;
+var sl=document.getElementById('slash');function cut(){sl.classList.remove('on');void sl.getBoundingClientRect();sl.classList.add('on');setTimeout(function(){sl.classList.remove('on')},1400)}
+addEventListener('keydown',function(e){if(e.key.toLowerCase()=='z'&&!/TEXTAREA|INPUT/.test(e.target.tagName))cut()});
+document.getElementById('go').onclick=function(){var t=document.getElementById('m').value,s=document.getElementById('s');function o(){window.open('https://www.linkedin.com/in/suryansh-kapoor-710807257/','_blank','noopener')}
+try{navigator.clipboard.writeText(t).then(function(){s.textContent='copied: paste it into a message!';o()},function(){s.textContent='copy it by hand, then';o()})}catch(x){s.textContent='copy it by hand, then';o();}};
+var cv=document.getElementById('trail');
+if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){var x=cv.getContext('2d'),p=null;
+function rs(){cv.width=innerWidth;cv.height=innerHeight}rs();addEventListener('resize',rs);
+addEventListener('pointermove',function(e){if(p){x.globalCompositeOperation='source-over';x.strokeStyle='rgba(93,88,76,.5)';x.lineWidth=1.4;x.beginPath();x.moveTo(p[0],p[1]);x.lineTo(e.clientX,e.clientY);x.stroke()}p=[e.clientX,e.clientY]});
+(function f(){x.globalCompositeOperation='destination-out';x.fillStyle='rgba(0,0,0,.06)';x.fillRect(0,0,cv.width,cv.height);requestAnimationFrame(f)})()}
+})();
+</script></body></html>
